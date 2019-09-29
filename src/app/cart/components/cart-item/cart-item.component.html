@@ -1,0 +1,18 @@
+<div
+  class="cart-item badge badge-dark pt-1 pb-2 px-3"
+>
+  <div class="d-flex align-items-center">
+    {{ product.name }}
+    <span class="text-warning ml-1">({{ product.price | currency }})</span>
+
+    <button
+      class="btn btn-link btn-sm cart-item__delete-btn p-0 ml-3"
+      (click)="onDelete()">
+      <i class="fas fa-times"></i>
+    </button>
+  </div>
+
+  <i class="d-block text-left text-secondary">
+     {{ joinValues(product.authors) }}
+  </i>
+</div>

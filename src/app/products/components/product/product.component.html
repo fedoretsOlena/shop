@@ -1,0 +1,44 @@
+<div
+  class="card product">
+
+  <div class="product__img">
+    <img
+      class="card-img-top"
+      [src]="product.image"
+      [alt]="product.name">
+  </div>
+
+  <span
+    class="badge badge-warning product__soldout-badge"
+    *ngIf="!product.isAvailable">Sold out</span>
+
+  <div class="card-body product__content">
+    <h5 class="card-title mb-4 text-uppercase">{{ product.name }}
+      <small class="d-block mt-1">
+        by <span class="text-warning">{{ product.authorsNames }}</span>
+      </small>
+    </h5>
+    <h5 class="card-subtitle d-flex justify-content-between mb-2 text-muted">
+      <span
+        [class.text-line-through]="product.sale">
+        {{ product.price | currency }}
+      </span>
+      <span
+        class="badge badge-success"
+        *ngIf="product.newPrice"> {{ product.newPrice | currency }}</span>
+    </h5>
+
+    <p class="card-text">{{ product.description }}</p>
+
+    <button
+      class="product__buy-btn btn btn-primary w-50"
+      [disabled]="!product.isAvailable"
+      (click)="onBuy()" >Buy</button>
+  </div>
+
+  <div class="card-footer text-muted text-right">
+    <ng-container *ngFor="let genre of product.genres, let last = last">
+      {{ genre }}<ng-container *ngIf="!last">,</ng-container>
+    </ng-container>
+  </div>
+</div>

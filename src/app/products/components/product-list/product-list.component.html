@@ -1,0 +1,10 @@
+
+<div class="container product-list">
+
+  <app-product
+    class="product-list__item"
+    *ngFor="let product of (products$ | async)"
+    [product]="product"
+    (addToCart)="onAddProductToCart(product)"
+  ></app-product>
+</div>

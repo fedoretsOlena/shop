@@ -1,0 +1,45 @@
+.product {
+  height: 100%;
+
+  &__soldout-badge {
+    top: 1rem;
+    right: 1rem;
+    position: absolute;
+    font-size: 1.25rem;
+  }
+
+  &:hover {
+
+    img {
+      transform: scale(1.1);
+    }
+  }
+
+  &__img {
+    max-height: 75vh;
+    overflow: hidden;
+
+    img {
+      object-fit: cover;
+      transition: 2s ease-out transform;
+    }
+  }
+
+  &__content {
+    position: relative;
+    padding-bottom: 3.5rem;
+  }
+
+  &__buy-btn {
+    bottom: 1rem;
+    position: absolute;
+    
+    &[disabled] {
+      cursor: not-allowed;
+    }
+  }
+}
+
+.text-line-through {
+  text-decoration: line-through;
+}
