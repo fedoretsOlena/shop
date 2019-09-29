@@ -1,0 +1,23 @@
+
+<section class="cart-products p-3">
+  <div class="container d-flex">
+    <i class="cart-products__icon fas fa-shopping-basket mr-3"></i>
+
+    <div class="w-100 d-flex flex-wrap align-items-center">
+     <ng-container *ngIf="(cartProducts$ | async).length > 0; else noProducts">
+        <app-cart-item
+          class="d-block m-1"
+          *ngFor="let product of cartProducts$ | async"
+          [product]="product"
+          (delete)="deleteProductFromCart(product.id)"
+        ></app-cart-item>
+      </ng-container>
+
+      <ng-template #noProducts>
+        <i class="d-block text-center">
+          Your card is empty.
+        </i>
+      </ng-template>
+      </div>
+    </div>
+</section>
