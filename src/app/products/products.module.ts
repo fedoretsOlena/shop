@@ -21,7 +21,7 @@ const components = [
     ...components
   ],
   providers: [
-    ProductsService
+    ProductsService // лучше регистрировать с помощью декоратора Injectable({providedIn: 'root'})
   ]
 })
 export class ProductsModule { }
