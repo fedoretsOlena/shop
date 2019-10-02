@@ -7,7 +7,9 @@ import { IProductModel, ProductModel } from '../models';
 
 import { products } from '../mocks';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ProductsService {
 
   constructor() {}

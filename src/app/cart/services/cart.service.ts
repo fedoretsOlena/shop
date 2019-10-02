@@ -5,7 +5,9 @@ import { filter, map, withLatestFrom } from 'rxjs/operators';
 
 import { CartProductModel } from '../models';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class CartService {
   private cartProductsSubject: BehaviorSubject<CartProductModel[]> = new BehaviorSubject([]);
 

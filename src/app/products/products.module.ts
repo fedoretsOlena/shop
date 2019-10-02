@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { ProductComponent, ProductListComponent } from './components';
 
-import { ProductsService } from './services';
-
 const components = [
    ProductComponent,
    ProductListComponent
@@ -19,9 +17,6 @@ const components = [
   ],
   exports: [
     ...components
-  ],
-  providers: [
-    ProductsService
   ]
 })
 export class ProductsModule { }
