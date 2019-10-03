@@ -1,0 +1,7 @@
+<sh-cart-item
+  class="d-block m-1"
+  *ngFor="let product of cartProducts"
+  [product]="product"
+  (delete)="onDelete(product.id)"
+  (changeCount)="onChangeCount($event, product.id)"
+></sh-cart-item>

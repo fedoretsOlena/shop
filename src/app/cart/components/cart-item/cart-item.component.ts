@@ -1,26 +1,31 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { CartProductModel } from '../../models';
 
 @Component({
-  selector: 'app-cart-item',
+  selector: 'sh-cart-item',
   templateUrl: './cart-item.component.html',
-  styleUrls: ['./cart-item.component.scss']
+  styleUrls: ['./cart-item.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CartItemComponent implements OnInit {
+export class CartItemComponent {
   @Input()
   product: CartProductModel;
 
   @Output()
   delete: EventEmitter<void> = new EventEmitter<void>();
 
+  @Output()
+  changeCount: EventEmitter<number> = new EventEmitter<number>();
+
   constructor() { }
 
-  ngOnInit() {
+  onIncreaseCount(count: number): void {
+    this.changeCount.emit(++count);
   }
 
-  joinValues(arr: string[], separator: string = ', '): string {
-    return arr.join(separator);
+  onDecreaseCount(count: number): void {
+    this.changeCount.emit(--count);
   }
 
   onDelete(): void {

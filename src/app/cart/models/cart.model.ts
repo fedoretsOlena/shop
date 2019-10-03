@@ -1,3 +1,3 @@
 import { ProductModel } from '../../products/models';
 
-export type CartProductModel = Partial<ProductModel>;
+export type CartProductModel = Partial<ProductModel & { count: number }>;
