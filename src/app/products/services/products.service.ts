@@ -14,7 +14,7 @@ export class ProductsService {
 
   constructor() {}
 
-  getProducts(): Observable<ProductModel[]> {
+  getProducts$(): Observable<ProductModel[]> {
     return of(products)
       .pipe(
         map((items: IProductModel[]) => {

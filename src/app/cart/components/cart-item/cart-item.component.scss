@@ -1,6 +1,12 @@
 .cart-item {
+  transition: .3s background-color;
 
   &__delete-btn {
     cursor: pointer;
+  }
+
+  &__count-btn {
+    padding: 0 .15rem;
+    font-size: .4rem;
   }
 }

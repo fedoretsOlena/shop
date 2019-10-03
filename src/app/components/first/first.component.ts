@@ -5,7 +5,7 @@ import { productMock } from './product.mock';
 import { Category } from '../../products/models';
 
 @Component({
-  selector: 'app-first',
+  selector: 'sh-first',
   templateUrl: './first.component.html',
   styleUrls: ['./first.component.css']
 })

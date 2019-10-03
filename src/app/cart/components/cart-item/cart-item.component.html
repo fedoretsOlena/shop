@@ -1,5 +1,6 @@
 <div
   class="cart-item badge badge-dark pt-1 pb-2 px-3"
+  shHighlight
 >
   <div class="d-flex align-items-center">
     {{ product.name }}
@@ -8,11 +9,22 @@
     <button
       class="btn btn-link btn-sm cart-item__delete-btn p-0 ml-3"
       (click)="onDelete()">
-      <i class="fas fa-times"></i>
+      <i class="fas fa-times text-danger"></i>
     </button>
   </div>
 
-  <i class="d-block text-left text-secondary">
-     {{ joinValues(product.authors) }}
-  </i>
+  <div class="d-flex justify-content-start align-items-center mt-1">
+    <button
+      class="btn btn-warning btn-sm cart-item__count-btn mr-1"
+      [disabled]="product.count === 0"
+      (click)="onDecreaseCount(product.count)">
+      <i class="fas fa-minus"></i>
+    </button>
+    {{ product.count || 1 }}
+    <button
+      class="btn btn-warning btn-sm cart-item__count-btn ml-1"
+      (click)="onIncreaseCount(product.count)">
+      <i class="fas fa-plus"></i>
+    </button>
+  </div>
 </div>

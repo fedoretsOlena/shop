@@ -4,15 +4,28 @@
     <i class="cart-products__icon fas fa-shopping-basket mr-3"></i>
 
     <div class="w-100 d-flex flex-wrap align-items-center">
-     <ng-container *ngIf="(cartProducts$ | async).length > 0; else noProducts">
-        <app-cart-item
-          class="d-block m-1"
-          *ngFor="let product of cartProducts$ | async"
-          [product]="product"
-          (delete)="deleteProductFromCart(product.id)"
-        ></app-cart-item>
-      </ng-container>
+      <ng-container *ngIf="(cartProducts$ | async).length; else noProducts">
+        <div>
+          <sh-cart-list
+            class="d-flex flex-wrap"
+            [cartProducts]="cartProducts$ | async"
+            (delete)="onDeleteProductFromCart($event)"
+            (changeCount)="onChangeCount($event)"
+          ></sh-cart-list>
 
+          <div
+            class="my-2"
+            *ngIf="(totalCount$ | async) as totalCount"
+          >
+            You are selected <span class="text-warning">{{ totalCount }}
+            item<ng-container *ngIf="totalCount > 1">s</ng-container></span>
+          </div>
+
+          <div>
+              Total amount: <span class="text-warning"> {{ totalAmount$ | async  | currency }}</span>
+          </div>
+        </div>
+      </ng-container>
       <ng-template #noProducts>
         <i class="d-block text-center">
           Your card is empty.

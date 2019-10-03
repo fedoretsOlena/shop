@@ -20,7 +20,7 @@
     </h5>
     <h5 class="card-subtitle d-flex justify-content-between mb-2 text-muted">
       <span
-        [class.text-line-through]="product.sale">
+        [ngClass]="{ 'text-line-through': product.sale }">
         {{ product.price | currency }}
       </span>
       <span
@@ -31,7 +31,7 @@
     <p class="card-text">{{ product.description }}</p>
 
     <button
-      class="product__buy-btn btn btn-primary w-50"
+      class="product__buy-btn btn btn-sm btn-primary w-50"
       [disabled]="!product.isAvailable"
       (click)="onBuy()" >Buy</button>
   </div>

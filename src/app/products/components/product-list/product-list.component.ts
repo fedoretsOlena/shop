@@ -7,7 +7,7 @@ import { ProductsService } from '../../services';
 import { CartService } from '../../../cart/services';
 
 @Component({
-  selector: 'app-product-list',
+  selector: 'sh-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss']
 })
@@ -18,7 +18,7 @@ export class ProductListComponent implements OnInit {
               private cartService: CartService) { }
 
   ngOnInit() {
-    this.products$ = this.productsService.getProducts();
+    this.products$ = this.productsService.getProducts$();
   }
 
   onAddProductToCart(product: ProductModel): void {
