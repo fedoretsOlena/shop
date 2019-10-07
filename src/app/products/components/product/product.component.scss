@@ -30,9 +30,13 @@
     padding-bottom: 3.5rem;
   }
 
-  &__buy-btn {
+  &__footer {
+    left: 0;
     bottom: 1rem;
     position: absolute;
+  }
+
+  &__buy-btn {
     
     &[disabled] {
       cursor: not-allowed;

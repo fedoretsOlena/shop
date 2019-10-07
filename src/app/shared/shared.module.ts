@@ -1,14 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { pipes } from './pipes';
 import { directives } from './directives';
+import { components } from './components';
 
 @NgModule({
   declarations: [
-    ...directives
+    ...components,
+    ...directives,
+    ...pipes
   ],
   exports: [
-    ...directives
+    ...components,
+    ...directives,
+    ...pipes
   ],
   imports: [
     CommonModule

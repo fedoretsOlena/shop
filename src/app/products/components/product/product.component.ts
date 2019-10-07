@@ -21,7 +21,6 @@ export class ProductComponent implements OnInit {
   }
 
   onBuy(): void {
-    console.log(`I want to buy ${this.product.name}`);
     this.addToCart.emit();
   }
 
