@@ -62,8 +62,8 @@ export class CartService {
       ).subscribe(products => this.updateCartProducts(products));
   }
 
-  private updateCartProducts(products: CartProductModel[]): void {
-    this.cartProductsSink.next(products);
+  deleteAll(): void {
+    this.updateCartProducts([]);
   }
 
   changeProductCount(id: number, count: number): void {
@@ -81,5 +81,9 @@ export class CartService {
         }),
         first()
       ).subscribe((products) => this.updateCartProducts(products));
+  }
+
+  private updateCartProducts(products: CartProductModel[]): void {
+    this.cartProductsSink.next(products);
   }
 }

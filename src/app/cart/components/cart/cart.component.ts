@@ -31,4 +31,8 @@ export class CartComponent implements OnInit {
   onChangeCount({ count, id }): void {
     this.cartService.changeProductCount(id, count);
   }
+
+  onClear(): void {
+    this.cartService.deleteAll();
+  }
 }

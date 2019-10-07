@@ -13,21 +13,28 @@
             (changeCount)="onChangeCount($event)"
           ></sh-cart-list>
 
-          <div
-            class="my-2"
-            *ngIf="(totalCount$ | async) as totalCount"
-          >
-            You are selected <span class="text-warning">{{ totalCount }}
-            item<ng-container *ngIf="totalCount > 1">s</ng-container></span>
-          </div>
+          <div class="d-flex align-items-center mt-3">
+            <span *ngIf="(totalCount$ | async) as totalCount">
+              You are selected <span class="text-warning">{{ totalCount }}
+              item<ng-container *ngIf="totalCount > 1">s</ng-container></span>
+            </span>
 
-          <div>
+            <span class="mx-4">
               Total amount: <span class="text-warning"> {{ totalAmount$ | async  | currency }}</span>
+            </span>
+
+            <button
+              class="btn btn-primary btn-sm float-right"
+              (click)="onClear()"
+            >Clear all</button>
           </div>
         </div>
       </ng-container>
       <ng-template #noProducts>
-        <i class="d-block text-center">
+        <i class="d-block text-center"
+           color="darkslategrey"
+           shPretty
+        >
           Your card is empty.
         </i>
       </ng-template>

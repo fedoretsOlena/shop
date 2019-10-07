@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 
 import { directives } from './directives';
 
-
-
 @NgModule({
   declarations: [
     ...directives

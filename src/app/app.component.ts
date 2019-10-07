@@ -9,7 +9,8 @@ export class AppComponent implements AfterViewInit {
   @ViewChild('appTitle', { static: false })
   titleEl: ElementRef;
 
-  constructor(private renderer: Renderer2) {}
+  constructor(private renderer: Renderer2) {
+  }
 
   ngAfterViewInit(): void {
 
