@@ -14,6 +14,7 @@
           ></sh-cart-list>
 
           <div class="d-flex align-items-center mt-3">
+            <!-- Тут уже знаете, что можно применить фильтр -->
             <span *ngIf="(totalCount$ | async) as totalCount">
               You are selected <span class="text-warning">{{ totalCount }}
               item<ng-container *ngIf="totalCount > 1">s</ng-container></span>
