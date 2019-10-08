@@ -3,7 +3,7 @@ import { Genre, IProductModel } from '../models';
 export const products: IProductModel[] = [{
   name: 'It',
   price: 7.5,
-  sale: 30,
+  sale: 5,
   image: 'https://i.pinimg.com/originals/95/73/1e/95731e0e0f922bdbb5e720d54' +
     '56037aa.jpg',
   authors: ['Stephen King'],
@@ -14,6 +14,7 @@ export const products: IProductModel[] = [{
     'young children.',
   isAvailable: true,
   genres: [Genre.Horror, Genre.DarkFantasy, Genre.Thriller],
+  lastUpdate: 'Mon Oct 07 2019 16:00:58 GMT+0300 (Eastern European Summer Time)'
 }, {
   name: 'Into Thin Air',
   price: 8,
@@ -22,11 +23,12 @@ export const products: IProductModel[] = [{
     '1997 bestselling non-fiction book written by Jon Krakauer.',
   isAvailable: true,
   image: 'https://images-na.ssl-images-amazon.com/images/I/613xliMRGmL.jpg',
-  genres: [Genre.NonFiction]
+  genres: [Genre.NonFiction],
+  lastUpdate: 'Tuesday Oct 08 2019 17:00:58 GMT+0300 (Eastern European Summer Time)'
 }, {
   name: 'Fire & Blood',
   price: 9.2,
-  sale: 15,
+  sale: 1.24,
   image: 'https://www.janisroze.lv/media/catalog/product/cache/5/image/' +
     '9df78eab33525d08d6e5fb8d27136e95/9/7/9780008307738_28.jpg',
   authors: ['George R. R. Martin'],
@@ -36,7 +38,8 @@ export const products: IProductModel[] = [{
     ' way up to the civil war that nearly tore their dynasty apart.' +
     ' What really happened during the Dance of the Dragons?',
   isAvailable: true,
-  genres: [Genre.Fantasy]
+  genres: [Genre.Fantasy],
+  lastUpdate: 'Wed Oct 09 2018 00:01:58 GMT+0300 (Eastern European Summer Time)'
 }, {
   name: 'The Great Gatsby',
   price: 10,
@@ -49,7 +52,8 @@ export const products: IProductModel[] = [{
     'the national drink and sex the national obsession,” it is an ' +
     'exquisitely crafted tale of America in the 1920s.',
   isAvailable: false,
-  genres: [Genre.Tragedy]
+  genres: [Genre.Tragedy],
+  lastUpdate: 'Wed Oct 09 2018 16:09:58 GMT+0300 (Eastern European Summer Time)'
 }, {
   name: 'To Kill a Mockingbird',
   price: 6,
@@ -60,7 +64,8 @@ export const products: IProductModel[] = [{
   description: 'The novel is renowned for its warmth and humor, ' +
     'despite dealing with the serious issues of rape and racial inequality.',
   isAvailable: true,
-  genres: [Genre.Bildungsroman]
+  genres: [Genre.Bildungsroman],
+  lastUpdate: 'Wed Oct 09 2018 16:40:58 GMT+0300 (Eastern European Summer Time)'
 }, {
   name: 'Harry Potter and the Sorcerer\'s Stone',
   price: 11.1,
@@ -72,7 +77,8 @@ export const products: IProductModel[] = [{
     'his magical heritage on his eleventh birthday, when he receives a letter ' +
     'of acceptance to Hogwarts School of Witchcraft and Wizardry. ',
   isAvailable: true,
-  genres: [Genre.Fantasy]
+  genres: [Genre.Fantasy],
+  lastUpdate: 'Wed Oct 09 2018 12:00:58 GMT+0300 (Eastern European Summer Time)'
 }, {
   name: 'The Talisman',
   price: 5.7,
@@ -85,5 +91,6 @@ export const products: IProductModel[] = [{
     '"the Territories," a strange fantasy land which is set in a universe ' +
     'parallel to that of Jack\'s United States. ',
   isAvailable: true,
-  genres: [Genre.DarkFantasy]
+  genres: [Genre.DarkFantasy],
+  lastUpdate: 'Thu Oct 11 2019 11:00:58 GMT+0300 (Eastern European Summer Time)'
 }];

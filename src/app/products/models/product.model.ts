@@ -9,6 +9,7 @@ export interface IProductModel {
   description: string;
   isAvailable: boolean;
   genres: Genre[];
+  lastUpdate: string;
 }
 
 export class ProductModel {
@@ -22,6 +23,7 @@ export class ProductModel {
   isAvailable: boolean;
   newPrice: number | null;
   genres: Genre[];
+  lastUpdate: Date;
 
   constructor(product: IProductModel) {
     Object.assign(this, product);
