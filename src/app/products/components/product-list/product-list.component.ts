@@ -23,12 +23,8 @@ export class ProductListComponent implements OnInit {
 
   onAddProductToCart(product: ProductModel): void {
 
-    this.cartService.addProduct({
-      id: product.id,
-      name: product.name,
-      authors: product.authors,
-      price: product.sale ? product.newPrice : product.price
-    });
+    const p = {...product, price: product.sale ? product.newPrice : product.price};
+    this.cartService.addProduct(p);
   }
 
 }
