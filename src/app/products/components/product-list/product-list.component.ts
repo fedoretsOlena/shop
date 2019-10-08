@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { Observable } from 'rxjs';
 
 import { ProductModel } from '../../models';
@@ -14,16 +15,18 @@ import { CartService } from '../../../cart/services';
 export class ProductListComponent implements OnInit {
   products$: Observable<ProductModel[]>;
 
-  constructor(private productsService: ProductsService,
-              private cartService: CartService) { }
+  constructor(
+    private productsService: ProductsService,
+    private cartService: CartService
+  ) { }
 
   ngOnInit() {
     this.products$ = this.productsService.getProducts$();
   }
 
   onAddProductToCart(product: ProductModel): void {
-
     const p = {...product, price: product.sale ? product.newPrice : product.price};
+
     this.cartService.addProduct(p);
   }
 

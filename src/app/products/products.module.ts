@@ -4,13 +4,13 @@ import { CommonModule } from '@angular/common';
 import { ProductComponent, ProductListComponent } from './components';
 
 const components = [
-  ProductComponent, // этот компонент не нужно делать публичным
+  ProductComponent,
   ProductListComponent
 ];
 
 @NgModule({
   declarations: [...components],
   imports: [CommonModule],
-  exports: [...components]
+  exports: [ProductListComponent]
 })
 export class ProductsModule {}

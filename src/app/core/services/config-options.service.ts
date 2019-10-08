@@ -14,7 +14,7 @@ export class ConfigOptionsService {
     this.settingsStorage = { ...this.settingsStorage, ...newSettings};
   }
 
-  get settings(): Partial<SettingsModel> { // тут Partial обязательно?
+  get settings(): Partial<SettingsModel> {
     return this.settingsStorage;
   }
 }
