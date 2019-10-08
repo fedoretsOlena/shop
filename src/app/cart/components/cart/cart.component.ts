@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { CartService } from '../../services';
 
 import { CartProductModel } from '../../models';
-import { Order } from '../../../shared/models';
+import { Order as OrderEnum } from '../../../shared/models';
 import { OrderByOptions } from '../../../shared/helpers';
 
 @Component({
@@ -20,7 +20,7 @@ export class CartComponent implements OnInit {
 
   itemPluralMapping: {[key: string]: string} = {'=1': '# item', other: '# items'};
 
-  Order = Order; // такие выражения плохо читаются
+  OrderType = OrderEnum;
   orderBy: { desc: boolean; field: string } = {
     desc: true,
     field: 'price'
@@ -54,7 +54,7 @@ export class CartComponent implements OnInit {
     this.cartService.deleteAll();
   }
 
-  onOrderByChanged(value: Order): void {
+  onOrderByChanged(value: OrderEnum): void {
     this.orderBy = {...this.orderBy, desc: !!(Number(value)) };
   }
 
