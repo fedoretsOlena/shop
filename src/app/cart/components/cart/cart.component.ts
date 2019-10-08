@@ -20,7 +20,7 @@ export class CartComponent implements OnInit {
 
   itemPluralMapping: {[key: string]: string} = {'=1': '# item', other: '# items'};
 
-  Order = Order;
+  Order = Order; // такие выражения плохо читаются
   orderBy: { desc: boolean; field: string } = {
     desc: true,
     field: 'price'
