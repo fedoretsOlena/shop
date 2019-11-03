@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 
 import { ProductModel } from '../../models';
 
@@ -8,20 +8,19 @@ import { ProductModel } from '../../models';
   styleUrls: ['./product.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProductComponent implements OnInit {
+export class ProductComponent {
   @Input()
   product: ProductModel;
+
+  @Input()
+  isRowDirection = false;
 
   @Output()
   addToCart: EventEmitter<void> = new EventEmitter<void>();
 
-  constructor() { }
-
-  ngOnInit() {
-  }
+  constructor() {}
 
   onBuy(): void {
     this.addToCart.emit();
   }
-
 }

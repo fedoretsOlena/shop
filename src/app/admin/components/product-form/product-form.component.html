@@ -1,0 +1,56 @@
+<form
+  class="my-3"
+  [formGroup]="productForm"
+  (submit)="submit(productForm.value)"
+>
+  <div class="form-group row">
+    <label for="name" class="col-sm-2 col-form-label">Name</label>
+    <div class="col-sm-10">
+      <input class="form-control" id="name" placeholder="Name" formControlName="name">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="description" class="col-sm-2 col-form-label">Description</label>
+    <div class="col-sm-10">
+      <textarea
+        class="form-control" rows="5"  id="description"
+        placeholder="Description" formControlName="description"></textarea>
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="price" class="col-sm-2 col-form-label">Price</label>
+    <div class="col-sm-10">
+      <input type="number" class="form-control" id="price" placeholder="Price" formControlName="price">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="authors" class="col-sm-2 col-form-label">Authors</label>
+    <div class="col-sm-10">
+      <input class="form-control" id="authors" placeholder="Split authors by ','" formControlName="authors">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <div class="col-sm-2">Is Available</div>
+    <div class="col-sm-10">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="isAvailable" formControlName="isAvailable">
+        <label class="form-check-label" for="isAvailable">
+          Yes
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-sm-10">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="productForm.invalid"
+      >{{ isCreatingMode ? 'Create' : 'Save' }}</button>
+    </div>
+  </div>
+</form>

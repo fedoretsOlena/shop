@@ -1,14 +1,11 @@
-.cart {
-  bottom: 0;
-  z-index: 3;
-  width: 100%;
-  position: fixed;
-}
-
 .content {
+  padding-top: 4rem;
   padding-bottom: 10rem;
 }
 
-.title {
-  font-size: 1.5rem;
+.nav {
+  top: 0;
+  z-index: 2;
+  width: 100%;
+  position: fixed;
 }

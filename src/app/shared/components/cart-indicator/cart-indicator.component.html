@@ -1,0 +1,12 @@
+<a
+class="cart-indicator d-flex align-items-center"
+[routerLink]="'cart'"
+>
+<i class="cart-indicator__icon fas fa-shopping-basket"></i>
+<ng-container *ngIf="totalCount$ | async as totalCount">
+      <span
+              *ngIf="totalCount > 0"
+              class="cart-indicator__count badge badge-sm badge-warning">{{ totalCount }}</span>
+</ng-container>
+<span class="text-secondary ml-2">{{ totalAmount$ | async | currency }}</span>
+</a>

@@ -1,10 +1,12 @@
-
 <div class="container product-list">
-
   <sh-product
     class="product-list__item"
     *ngFor="let product of (products$ | async)"
     [product]="product"
     (addToCart)="onAddProductToCart(product)"
-  ></sh-product>
+  >
+    <a
+      class="product__buy-btn btn btn-sm btn-info ml-2"
+      [routerLink]="'/product/' + product.id" >View More</a>
+  </sh-product>
 </div>

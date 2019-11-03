@@ -1,23 +1,28 @@
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { pipes } from './pipes';
 import { directives } from './directives';
-import { components } from './components';
+import { components, exportComponents } from './components';
+import { CanViewDirective } from './directives/can-view.directive';
 
 @NgModule({
   declarations: [
     ...components,
     ...directives,
-    ...pipes
+    ...pipes,
+    CanViewDirective
   ],
   exports: [
-    ...components,
+    ...exportComponents,
     ...directives,
     ...pipes
   ],
   imports: [
-    CommonModule
+    CommonModule,
+
+    RouterModule
   ]
 })
 export class SharedModule { }

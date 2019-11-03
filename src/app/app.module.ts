@@ -1,25 +1,32 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
-import { FirstComponent, AboutComponent } from './components';
+import { components } from './components';
 
 import { CoreModule } from './core';
 import { ProductsModule } from './products';
 import { CartModule } from './cart';
+import { SharedModule } from './shared';
+import { OrdersModule } from './orders';
 
 @NgModule({
   declarations: [
     AppComponent,
-    FirstComponent,
-    AboutComponent
+    ...components
   ],
   imports: [
     BrowserModule,
 
     CoreModule,
     CartModule,
-    ProductsModule
+    SharedModule,
+    ProductsModule,
+    OrdersModule,
+
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

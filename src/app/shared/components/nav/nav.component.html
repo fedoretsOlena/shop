@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark w-100">
+    <a class="navbar-brand" [routerLink]="'product-list'">Abook</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+          <li
+            class="nav-item"
+            routerLinkActive="active"
+            *ngFor="let route of routes"
+          >
+
+            <a class="nav-link"
+               [routerLink]="route.link"
+               *ngIf="!route.roles; else navLinkWithRoles"
+            >{{ route.label }} </a>
+
+            <ng-template #navLinkWithRoles>
+              <a class="nav-link"
+                 [routerLink]="route.link"
+                 *shCanView="route.roles"
+              >{{ route.label }} </a>
+            </ng-template>
+          </li>
+        </ul>
+
+        <span class="navbar-text d-flex align-items-center">
+          <sh-cart-indicator></sh-cart-indicator>
+
+          <button
+            class="sign-out-btn btn btn-link p-0 ml-5"
+            *ngIf="isUserAuthorized$ | async; else loginBtn"
+            (click)="logout()"
+          ><i class="pr-2 fas fa-sign-out-alt"></i></button>
+
+
+          <ng-template #loginBtn>
+            <button
+              class="sign-out-btn btn btn-link p-0 ml-5"
+              routerLink="auth/login"
+            ><i class="fas fa-sign-in-alt"></i></button>
+          </ng-template>
+        </span>
+    </div>
+</nav>

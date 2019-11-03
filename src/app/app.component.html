@@ -1,16 +1,15 @@
 <div class="content">
-  <h1
-    #appTitle
-    class="container my-3 text-center title"
-  ></h1>
-
-  <sh-about></sh-about>
+  <!--<sh-about></sh-about>-->
   <!--<sh-first></sh-first>-->
 
-  <sh-product-list></sh-product-list>
+  <ng-container *ngIf="!isAuthPage">
+    <sh-nav class="nav"></sh-nav>
 
-  <sh-cart class="cart"></sh-cart>
+    <h5
+      #appTitle
+      class="container mb-3 mt-5"
+    ></h5>
+  </ng-container>
 
+  <router-outlet></router-outlet>
 </div>
-
-

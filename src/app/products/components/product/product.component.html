@@ -1,5 +1,4 @@
-<div
-  class="card product">
+<div class="card product" [class.flex-row]="isRowDirection">
 
   <div class="product__img">
     <img
@@ -31,11 +30,15 @@
     <p class="card-text">{{ product.description }}</p>
 
     <div class="product__footer d-flex justify-content-between align-items-center w-100 px-3">
-      <button
-        class="product__buy-btn btn btn-sm btn-primary w-50"
-        [disabled]="!product.isAvailable"
-        (click)="onBuy()" >Buy</button>
       <small class="text-secondary">{{ product.lastUpdate | date : 'short' }}</small>
+
+      <div>
+        <button
+          class="product__buy-btn btn btn-sm btn-primary"
+          [disabled]="!product.isAvailable"
+          (click)="onBuy()" >Buy</button>
+        <ng-content></ng-content>
+      </div>
     </div>
   </div>
 
