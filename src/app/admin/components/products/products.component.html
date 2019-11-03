@@ -1,0 +1,26 @@
+<ng-container *ngIf="products$ | async as products">
+  <ul class="list-group list-group-flush"
+      *ngIf="products && products.length; else noProducts"
+  >
+    <li
+      class="product list-group-item d-flex align-items-center"
+      *ngFor="let product of products, let inx = index"
+    >
+      <div class="w-50 pr-3">
+        {{ inx + 1 }}.
+        <i>{{ product.name }}</i>
+      </div>
+
+      {{ (product.price) | currency}}
+
+      <button
+        class="btn btn-secondary btn-sm ml-auto mr-0"
+        [routerLink]="['../product/edit', product.id]"
+      ><i class="product__edit fa fa-edit"></i></button>
+    </li>
+  </ul>
+
+  <ng-template #noProducts>
+    <div class="alert alert-info">There is no products yet.</div>
+  </ng-template>
+</ng-container>

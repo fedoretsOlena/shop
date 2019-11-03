@@ -5,7 +5,7 @@ import { CoreModule } from '../core.module';
 import { SettingsModel } from '../models';
 
 @Injectable({
-  providedIn: CoreModule
+providedIn: CoreModule
 })
 export class ConfigOptionsService {
   private settingsStorage: SettingsModel;

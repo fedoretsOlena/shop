@@ -1,3 +1,30 @@
+### Home Task 5
+
+- Add routing to `app.module`;
+- Create products detail page;
+- Create lazy `AdminModule` with nesting routing;
+- Create `AuthGuard`, `RoleGuard` and `ProductResolveGuard`;
+- Create `Login` page, `AuthService` for authorization;
+- Add / Edit actions as admin;
+- Add `canView` directive;
+- Save cart products and user to localStorage;
+- Add `404` page.
+
+###### For authorization, use these users: 
+1. Usual: `user / zaqwsx`
+2. Admin: `admin / epam2019`
+ 
+### Home Task 4 
+
+- Create `OrderByPipe`;
+- Already in use pipe `async` for product list;
+- Add build-in pipes:
+     - `currency` (for product price);
+     - `date` (for product lastUpdate);
+     - `uppercase`, `titlecase` (for product name)
+     - `i18nPlural` (for totalCount inside cart).
+
+
 ### Home Task 3
 
 - Add `deleteAll` to CartService;
@@ -6,7 +33,6 @@
 - Create `ConstantService` and register by `useValue`;
 - Add to `AboutComponent` constructor all created services, check their work by console.log;
 - Add `PrettyDirective` for change style from directive.
-
 
 ### Home Task 2
 

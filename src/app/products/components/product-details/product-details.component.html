@@ -1,0 +1,10 @@
+<div class="container"
+     *ngIf="product$ | async as product"
+>
+    <sh-product
+      class="d-block mt-5"
+      [product]="product"
+      [isRowDirection]="true"
+      (addToCart)="onAddProductToCart(product)"
+    ></sh-product>
+</div>

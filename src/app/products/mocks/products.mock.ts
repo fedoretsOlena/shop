@@ -1,6 +1,7 @@
 import { Genre, IProductModel } from '../models';
 
 export const products: IProductModel[] = [{
+  id: 1,
   name: 'It',
   price: 7.5,
   sale: 5,
@@ -16,6 +17,7 @@ export const products: IProductModel[] = [{
   genres: [Genre.Horror, Genre.DarkFantasy, Genre.Thriller],
   lastUpdate: 'Mon Oct 07 2019 16:00:58 GMT+0300 (Eastern European Summer Time)'
 }, {
+  id: 2,
   name: 'Into Thin Air',
   price: 8,
   authors: ['Jon Krakauer'],
@@ -26,6 +28,7 @@ export const products: IProductModel[] = [{
   genres: [Genre.NonFiction],
   lastUpdate: 'Tuesday Oct 08 2019 17:00:58 GMT+0300 (Eastern European Summer Time)'
 }, {
+  id: 3,
   name: 'Fire & Blood',
   price: 9.2,
   sale: 1.24,
@@ -41,6 +44,7 @@ export const products: IProductModel[] = [{
   genres: [Genre.Fantasy],
   lastUpdate: 'Wed Oct 09 2018 00:01:58 GMT+0300 (Eastern European Summer Time)'
 }, {
+  id: 4,
   name: 'The Great Gatsby',
   price: 10,
   image: 'https://d3u67r7pp2lrq5.cloudfront.net/product_photos/17103633/' +
@@ -55,6 +59,7 @@ export const products: IProductModel[] = [{
   genres: [Genre.Tragedy],
   lastUpdate: 'Wed Oct 09 2018 16:09:58 GMT+0300 (Eastern European Summer Time)'
 }, {
+  id: 5,
   name: 'To Kill a Mockingbird',
   price: 6,
   image: 'https://cdn11.bigcommerce.com/s-x3k2fq1/images/stencil/2048x2048/' +
@@ -67,6 +72,7 @@ export const products: IProductModel[] = [{
   genres: [Genre.Bildungsroman],
   lastUpdate: 'Wed Oct 09 2018 16:40:58 GMT+0300 (Eastern European Summer Time)'
 }, {
+  id: 6,
   name: 'Harry Potter and the Sorcerer\'s Stone',
   price: 11.1,
   authors: ['J.K. Rowling'],
@@ -80,6 +86,7 @@ export const products: IProductModel[] = [{
   genres: [Genre.Fantasy],
   lastUpdate: 'Wed Oct 09 2018 12:00:58 GMT+0300 (Eastern European Summer Time)'
 }, {
+  id: 7,
   name: 'The Talisman',
   price: 5.7,
   image: 'https://images-na.ssl-images-amazon.com/images/I/81zxmzi%2BrbL.jpg',

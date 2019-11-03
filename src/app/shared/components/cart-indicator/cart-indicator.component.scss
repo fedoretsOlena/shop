@@ -1,0 +1,23 @@
+.cart-indicator {
+  text-decoration: none;
+
+  &__icon {
+    color: darkgrey;
+    font-size: 1.75rem;
+    transition: .5s color;
+  }
+
+  &__count {
+    top: -0.5rem;
+    left: -.5rem;
+    position: relative;
+  }
+
+  &:hover {
+
+    .cart-indicator__icon {
+      color: white;
+      cursor: pointer;
+    }
+  }
+}
