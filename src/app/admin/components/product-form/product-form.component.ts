@@ -18,7 +18,7 @@ export class ProductFormComponent implements OnInit, CanDeactivateGuard {
   productForm: FormGroup;
   isCreatingMode = true;
 
-  private productId: number;
+  private product: ProductModel;
 
   constructor(
     private fb: FormBuilder,
@@ -46,7 +46,7 @@ export class ProductFormComponent implements OnInit, CanDeactivateGuard {
         filter(Boolean)
       )
       .subscribe((product: ProductModel) => {
-        this.productId = product.id;
+        this.product = product;
 
         this.productForm.patchValue(product);
         this.isCreatingMode = false;
@@ -62,12 +62,15 @@ export class ProductFormComponent implements OnInit, CanDeactivateGuard {
   }
 
   submit(value: IProductModel): void {
-    this.isCreatingMode
-      ? this.productsService.addProduct(value)
-      : this.productsService.editProduct({...value, id: this.productId});
-    this.productForm.reset();
+    const source$ =
+      this.isCreatingMode
+        ? this.productsService.addProduct(value)
+        : this.productsService.editProduct({...this.product, ...value});
 
-    this.router.navigate(['./admin/products']);
+    source$.subscribe(() => {
+      this.productForm.reset();
+      this.router.navigate(['./admin/products']);
+    });
   }
 
 }

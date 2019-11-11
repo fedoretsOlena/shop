@@ -8,13 +8,13 @@
     <label for="name">Your name</label>
     <input
       class="form-control" id="name" placeholder="Enter name"
-      formControlName="login"
-      [ngClass]="checkValidity('login')"
+      formControlName="email"
+      [ngClass]="checkValidity('email')"
     >
     <div
       class="invalid-feedback"
-      *ngIf="serverErrors['login']"
-    >{{ serverErrors['login'] }}</div>
+      *ngIf="serverErrors['email']"
+    >{{ serverErrors['email'] }}</div>
   </div>
   <div class="form-group">
     <label for="password">Password</label>

@@ -1,0 +1,127 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "login": "user",
+      "email": "john_doe@gmail.com",
+      "password": "$2a$10$RulcvHeFajfvlK2iaVdLH.bmWZuLvvSTljMK744WNA5zfl5v7Fhrq",
+      "roles": []
+    },
+    {
+      "id": 2,
+      "login": "admin",
+      "email": "admin@epam.com",
+      "password": "$2a$10$fRT20nn1eb/S2S9990XSwOl8L28TjeVUL3o3dL.LgDZ4O4EzF9t4e",
+      "roles": [
+        "admin"
+      ]
+    }
+  ],
+  "products": [
+    {
+      "name": "It",
+      "price": 7,
+      "sale": 5,
+      "image": "https://vignette.wikia.nocookie.net/stephenking/images/6/69/%D0%9E%D0%BD%D0%BE_%28%D1%84%D0%B8%D0%BB%D1%8C%D0%BC%2C_2017%29.jpg/revision/latest?cb=20170912185600&path-prefix=ru",
+      "description": "The story follows the experiences of seven children as they are terrorized by an evil entity that exploits the fears of its victims to disguise itself while hunting its prey. It primarily appears in the form of Pennywise the Dancing Clown to attract its preferred prey of young children.",
+      "isAvailable": true,
+      "authors": [
+        "Stephen King",
+        " Peter Straub "
+      ],
+      "id": 1,
+      "genres": [
+        "Horror"
+      ],
+      "newPrice": 7.6000000000000005
+    },
+    {
+      "id": 2,
+      "name": "Into Thin Air",
+      "price": 8,
+      "authors": [
+        "Jon Krakauer"
+      ],
+      "description": "A Personal Account of the Mt. Everest Disaster is a 1997 bestselling non-fiction book written by Jon Krakauer.",
+      "isAvailable": true,
+      "image": "https://images-na.ssl-images-amazon.com/images/I/613xliMRGmL.jpg",
+      "genres": [
+        "Non Fiction"
+      ],
+      "lastUpdate": "Tuesday Oct 08 2019 17:00:58 GMT+0300 (Eastern European Summer Time)"
+    },
+    {
+      "id": 3,
+      "name": "Fire & Blood",
+      "price": 9.2,
+      "sale": 1.24,
+      "image": "https://www.janisroze.lv/media/catalog/product/cache/5/image/9df78eab33525d08d6e5fb8d27136e95/9/7/9780008307738_28.jpg",
+      "authors": [
+        "George R. R. Martin"
+      ],
+      "description": "Fire and Blood begins their tale with the legendary Aegon the Conqueror, creator of the Iron Throne, and goes on to recount the generations of Targaryens who fought to hold that iconic seat, all the way up to the civil war that nearly tore their dynasty apart. What really happened during the Dance of the Dragons?",
+      "isAvailable": true,
+      "genres": [
+        "Fantasy"
+      ],
+      "lastUpdate": "Wed Oct 09 2018 00:01:58 GMT+0300 (Eastern European Summer Time)"
+    },
+    {
+      "name": "The Great Gatsby",
+      "price": 11,
+      "sale": null,
+      "description": "The story of the mysteriously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan, of lavish parties on Long Island at a time when The New York Times noted gin was the national drink and sex the national obsession, it is an exquisitely crafted tale of America in the 1920s.",
+      "isAvailable": false,
+      "authors": [
+        "F. Scott Fitzgerald"
+      ],
+      "id": 4
+    },
+    {
+      "id": 5,
+      "name": "To Kill a Mockingbird",
+      "price": 6,
+      "image": "https://cdn11.bigcommerce.com/s-x3k2fq1/images/stencil/2048x2048/products/2220/9187/01-P83-05_TO_KILL_A_MOCKINGBIRD__70127.1531080675.jpg?c=2",
+      "authors": [
+        "Harper Lee"
+      ],
+      "description": "The novel is renowned for its warmth and humor, despite dealing with the serious issues of rape and racial inequality.",
+      "isAvailable": true,
+      "genres": [
+        "Bildungsroman"
+      ],
+      "lastUpdate": "Wed Oct 09 2018 16:40:58 GMT+0300 (Eastern European Summer Time)"
+    },
+    {
+      "id": 6,
+      "name": "Harry Potter and the Sorcerers Stone",
+      "price": 11.1,
+      "authors": "J.K. Rowlingg",
+      "image": "https://i.pinimg.com/originals/f5/5c/b9/f55cb92f0b7de99a9bad66d427e121fc.jpg",
+      "description": "The first novel in the Harry Potter series and Rowlings debut novel, it follows Harry Potter, a young wizard who discovers his magical heritage on his eleventh birthday, when he receives a letter of acceptance to Hogwarts School of Witchcraft and Wizardry. ",
+      "isAvailable": true,
+      "genres": [
+        "Fantasy"
+      ],
+      "lastUpdate": "Wed Oct 09 2018 12:00:58 GMT+0300 (Eastern European Summer Time)",
+      "newPrice": null,
+      "sale": null
+    },
+    {
+      "id": 7,
+      "name": "The Talisman",
+      "price": 5.7,
+      "image": "https://images-na.ssl-images-amazon.com/images/I/81zxmzi%2BrbL.jpg",
+      "authors": [
+        "Stephen King",
+        "Peter Straub"
+      ],
+      "description": "Jack Sawyer, twelve years old, sets out from Arcadia Beach, New Hampshire in a bid to save his mother, who is dying from cancer, by finding a crystal called the Talisman. Jacks journey takes him simultaneously through the American heartland and the Territories, a strange fantasy land which is set in a universe parallel to that of Jack\"s United States. ",
+      "isAvailable": true,
+      "genres": [
+        "DarkFantasy"
+      ],
+      "lastUpdate": "Thu Oct 11 2019 11:00:58 GMT+0300 (Eastern European Summer Time)"
+    }
+  ]
+}
