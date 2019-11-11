@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
-import { Observable, of, throwError } from 'rxjs';
+import { map, pluck, switchMap, tap } from 'rxjs/operators';
 
-import { serverUsers } from '../mocks/';
 import { UserServiceModel } from '../models';
-import { SettingsModel, UserProfileService } from '../../core';
+import { SettingsModel, UserProfileService, ApiConfig } from '../../core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
   constructor(
+    private http: HttpClient,
     private profileService: UserProfileService
   ) {
   }
@@ -19,24 +20,33 @@ export class AuthService {
     return this.profileService.isLogin();
   }
 
-  login(user: Partial<UserServiceModel>): Observable<SettingsModel> {
-    const users: UserServiceModel[] = [...serverUsers];
-    const currUser = users.find((i) => i.login === user.login);
+  login(user: Partial<UserServiceModel>): Promise<object> {
+    return this.http.post<{ accessToken: string }>(ApiConfig.LOGIN_URL, user)
+      .pipe(
+        map(({ accessToken }) => this.decodeJWTToken(accessToken)),
+        pluck('sub'),
+        switchMap((id) => this.http.get<SettingsModel>(`http://localhost:3000/users/${id}`)),
+        tap(currUser => this.profileService.changeUser(currUser))
+      )
+      .toPromise()
+      .catch(({ error }) => {
+        if (error.includes('user')) {
+          throw({ email: error });
+        }
 
-    if (!currUser) {
-      return throwError({login: `There is no such user as ${user.login}`});
-    }
+        if (error.toLowerCase().includes('password')) {
+          throw({ password: error });
+        }
 
-    if (currUser.password !== user.password) {
-      return throwError({password: `Password is wrong.`});
-    }
-
-    this.profileService.changeUser(currUser);
-
-    return of(currUser);
+        throw ({ common: error });
+      });
   }
 
   logout(): void {
     this.profileService.changeUser(null);
+  }
+
+  private decodeJWTToken(accessToken: string): { [key: string]: any } {
+    return JSON.parse(atob(accessToken.split('.')[1]));
   }
 }

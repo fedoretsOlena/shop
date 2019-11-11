@@ -1,8 +1,6 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
-import { catchError, first } from 'rxjs/operators';
 
 import { AuthService } from '../../services';
 
@@ -14,14 +12,18 @@ import { AuthService } from '../../services';
 })
 export class LoginComponent {
   loginForm: FormGroup = this.fb.group({
-    login: ['admin', Validators.required],
-    password: ['epam2019', Validators.required]
+    email: ['admin@epam.com', [
+      Validators.required,
+      Validators.email
+    ]],
+    password: ['admin', Validators.required]
   });
   serverErrors: { [key: string]: string } = {};
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
+    private cd: ChangeDetectorRef,
     private authService: AuthService
   ) {
   }
@@ -31,19 +33,20 @@ export class LoginComponent {
 
     this.serverErrors = {};
     this.authService.login(values)
-      .pipe(
-        first(),
-        catchError((err) => this.serverErrors = err)
-      ).subscribe(() => this.router.navigate(['/product-list']));
+      .then(() => this.router.navigate(['/product-list']))
+      .catch((error) => {
+        this.serverErrors = { ...error };
+        this.cd.detectChanges();
+      });
   }
 
   checkValidity(name: string): { [key: string]: boolean } {
     const control: AbstractControl = this.loginForm.controls[name];
 
-    if (!control || !control.touched) {
+    if (!control || (!control.touched && !control.value )) {
       return;
     }
-    const isValid = (control.valid && control.touched) && !this.serverErrors.hasOwnProperty(name);
+    const isValid = control.valid && !this.serverErrors.hasOwnProperty(name);
 
     return {
       'is-valid': isValid,

@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { components } from './components';
 
-import { CoreModule } from './core';
+import { CoreModule, httpInterceptorProviders } from './core';
 import { ProductsModule } from './products';
 import { CartModule } from './cart';
 import { SharedModule } from './shared';
@@ -28,7 +28,9 @@ import { OrdersModule } from './orders';
 
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    httpInterceptorProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

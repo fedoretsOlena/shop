@@ -1,3 +1,11 @@
+### Home Task 6
+
+- Add `json-server`, make changes for `products.service` (with Observable);
+- Add `json-server-auth`, make changes for `auth.service` (with Promise);
+- Add `TimingInterceptor` for `products` requests;
+- Create `AppSettings` for upload and save settings to LS.
+
+
 ### Home Task 5
 
 - Add routing to `app.module`;
@@ -11,8 +19,8 @@
 - Add `404` page.
 
 ###### For authorization, use these users: 
-1. Usual: `user / zaqwsx`
-2. Admin: `admin / epam2019`
+1. Usual: `john_doe@gmail.com / zaqwsx`
+2. Admin: `admin@epam.com / admin`
  
 ### Home Task 4 
 

@@ -4,7 +4,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { filter, pluck } from 'rxjs/operators';
 
-import { UserProfileService } from './core/services';
+import { AppSettingsService, UserProfileService } from './core/services';
 
 @Component({
   selector: 'sh-root',
@@ -21,13 +21,14 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor(
     private renderer: Renderer2,
     private router: Router,
-    private profileUser: UserProfileService
+    private profileUser: UserProfileService,
+    private appSettings: AppSettingsService
   ) {
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.startListenRouterEvents();
-
+    this.printAppSettings();
     this.subs.add(this.profileUser.user$.subscribe());
   }
 
@@ -48,6 +49,10 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
         pluck('url'),
       )
       .subscribe((url: string) => this.isAuthPage = url.includes('auth')));
+  }
+
+  private async printAppSettings() {
+    console.log('App Settings: ', await this.appSettings.getSettings());
   }
 }
 
