@@ -1,0 +1,35 @@
+<div
+  class="container"
+  *ngIf="ordersState$ | async as ordersState"
+>
+  <ul
+    class="list-group"
+    *ngIf="!ordersState.loading; else loading"
+  >
+    <li
+      class="list-group-item d-flex justify-content-between"
+      *ngFor="let order of ordersState.data, let i = index"
+    >
+      {{ i + 1 }})
+      {{ order.products.length }} item<ng-container *ngIf="order.products.length > 1">s</ng-container>,
+      {{ order.creationDate | date: 'short' }}
+
+      <div class="d-flex align-items-center">
+        <span class="text-warning pr-5">{{ order.totalAmount | currency }}</span>
+        <span
+          class="badge"
+          [ngClass]="'badge-' + getBadgeColor(order.status)"
+        >{{ order.status }}</span>
+      </div>
+    </li>
+  </ul>
+
+  <ng-template #loading>
+    <div class="py-3">Loading...</div>
+  </ng-template>
+
+  <div
+    class="alert alert-warning mt-2"
+    *ngIf="ordersState.error"
+  >{{ ordersState.error }}</div>
+</div>

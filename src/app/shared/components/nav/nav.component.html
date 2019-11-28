@@ -25,6 +25,16 @@
               >{{ route.label }} </a>
             </ng-template>
           </li>
+
+          <li
+            class="nav-item"
+            routerLinkActive="active"
+          >
+            <a class="nav-link"
+               [routerLink]="'orders'"
+               *ngIf="isUserAuthorized$ | async"
+            >Orders</a>
+          </li>
         </ul>
 
         <span class="navbar-text d-flex align-items-center">

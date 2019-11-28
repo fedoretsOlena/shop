@@ -1,2 +1,2 @@
-export { OrdersModule } from './orders.module';
 export * from './components';
+export * from './models';

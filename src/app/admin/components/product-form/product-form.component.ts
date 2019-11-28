@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { filter, pluck } from 'rxjs/operators';
 
-import { IProductModel, ProductModel, ProductsService } from '../../../products';
+import { IProductModel, ProductModel } from '../../../products';
 import { CanComponentDeactivate, DialogService } from '../../../core';
 import { CanDeactivateGuard } from '../../../core/guards';
+import { addProduct, AppState, updateProduct } from '../../../core/store';
 
 @Component({
   selector: 'sh-product-form',
@@ -24,7 +26,7 @@ export class ProductFormComponent implements OnInit, CanDeactivateGuard {
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private productsService: ProductsService,
+    private store: Store<AppState>,
     private dialogService: DialogService
   ) {
 
@@ -61,16 +63,13 @@ export class ProductFormComponent implements OnInit, CanDeactivateGuard {
     return this.dialogService.confirm('New product data will not be saved. Are you sure?');
   }
 
-  submit(value: IProductModel): void {
-    const source$ =
+  submit(product: IProductModel): void {
+    this.productForm.reset();
+
+    this.store.dispatch(
       this.isCreatingMode
-        ? this.productsService.addProduct(value)
-        : this.productsService.editProduct({...this.product, ...value});
-
-    source$.subscribe(() => {
-      this.productForm.reset();
-      this.router.navigate(['./admin/products']);
-    });
+        ? addProduct({product})
+        : updateProduct({product: {...this.product, ...product}})
+    );
   }
-
 }

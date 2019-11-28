@@ -1,6 +1,6 @@
 <ng-container *ngIf="products$ | async as products">
   <ul class="list-group list-group-flush"
-      *ngIf="products && products.length; else noProducts"
+      *ngIf="products.length; else noProducts"
   >
     <li
       class="product list-group-item d-flex align-items-center"
@@ -21,6 +21,10 @@
   </ul>
 
   <ng-template #noProducts>
-    <div class="alert alert-info">There is no products yet.</div>
+    <div class="alert alert-info" *ngIf="loaded$ | async;else loading">There is no products yet.</div>
   </ng-template>
 </ng-container>
+
+<ng-template #loading>
+  <h4 class="text-center py-5">Loading...</h4>
+</ng-template>

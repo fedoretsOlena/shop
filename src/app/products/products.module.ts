@@ -3,7 +3,11 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+
 import { ProductComponent, ProductListComponent, ProductDetailsComponent } from './components';
+import { productsFeatureKey, productsReducer, ProductsEffects } from '../core/store';
 
 const components = [
   ProductComponent,
@@ -16,7 +20,10 @@ const components = [
   imports: [
     CommonModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+
+    StoreModule.forFeature(productsFeatureKey, productsReducer),
+    EffectsModule.forFeature([ProductsEffects])
   ],
   exports: [ProductListComponent]
 })

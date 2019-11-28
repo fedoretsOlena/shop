@@ -20,11 +20,11 @@
   "products": [
     {
       "name": "It",
-      "price": 7,
+      "price": 5,
       "sale": 5,
       "image": "https://vignette.wikia.nocookie.net/stephenking/images/6/69/%D0%9E%D0%BD%D0%BE_%28%D1%84%D0%B8%D0%BB%D1%8C%D0%BC%2C_2017%29.jpg/revision/latest?cb=20170912185600&path-prefix=ru",
       "description": "The story follows the experiences of seven children as they are terrorized by an evil entity that exploits the fears of its victims to disguise itself while hunting its prey. It primarily appears in the form of Pennywise the Dancing Clown to attract its preferred prey of young children.",
-      "isAvailable": true,
+      "isAvailable": false,
       "authors": [
         "Stephen King",
         " Peter Straub "
@@ -33,7 +33,7 @@
       "genres": [
         "Horror"
       ],
-      "newPrice": 7.6000000000000005
+      "newPrice": 4.75
     },
     {
       "id": 2,
@@ -55,7 +55,7 @@
       "name": "Fire & Blood",
       "price": 9.2,
       "sale": 1.24,
-      "image": "https://www.janisroze.lv/media/catalog/product/cache/5/image/9df78eab33525d08d6e5fb8d27136e95/9/7/9780008307738_28.jpg",
+      "image": "https://oyster.ignimgs.com/wordpress/stg.ign.com/2018/04/FandB-DS-241-768x1167.jpg",
       "authors": [
         "George R. R. Martin"
       ],
@@ -64,18 +64,21 @@
       "genres": [
         "Fantasy"
       ],
-      "lastUpdate": "Wed Oct 09 2018 00:01:58 GMT+0300 (Eastern European Summer Time)"
+      "lastUpdate": "Wed Oct 09 2018 00:01:58 GMT+0300 (Eastern European Summer Time)",
+      "newPrice": 9.08592
     },
     {
       "name": "The Great Gatsby",
       "price": 11,
       "sale": null,
       "description": "The story of the mysteriously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan, of lavish parties on Long Island at a time when The New York Times noted gin was the national drink and sex the national obsession, it is an exquisitely crafted tale of America in the 1920s.",
-      "isAvailable": false,
+      "isAvailable": true,
       "authors": [
         "F. Scott Fitzgerald"
       ],
-      "id": 4
+      "id": 4,
+      "newPrice": null,
+      "image": "https://islandpress.org/sites/default/files/400px%20x%20600px-r01BookNotPictured.jpg"
     },
     {
       "id": 5,
@@ -122,6 +125,143 @@
         "DarkFantasy"
       ],
       "lastUpdate": "Thu Oct 11 2019 11:00:58 GMT+0300 (Eastern European Summer Time)"
+    },
+    {
+      "name": "Angular Tutorial",
+      "price": 66.64,
+      "sale": null,
+      "description": "Read to the end if you can...",
+      "isAvailable": false,
+      "authors": [
+        "Adam Abrons"
+      ],
+      "id": 1574887242784,
+      "newPrice": null,
+      "image": "https://ih0.redbubble.net/image.562336624.7965/mp,840x830,matte,f8f8f8,t-pad,750x1000,f8f8f8.u4.jpg"
+    },
+    {
+      "name": "The Perfect Murder",
+      "price": 15,
+      "sale": null,
+      "description": "In that dim corner of the cafe was planned the perfect murder. Paul had long since realized that the affair was not so easy of accomplishment as he had so airily suggested. For the thing must be done without violence, without clues, without a trace.",
+      "isAvailable": true,
+      "authors": [
+        "Ruskin Bond",
+        " MV"
+      ],
+      "id": 1574971899354,
+      "newPrice": null,
+      "image": "https://images-na.ssl-images-amazon.com/images/I/61PtQWX9kyL.jpg",
+      "genres": [
+        "Detective"
+      ]
+    }
+  ],
+  "orders": [
+    {
+      "id": 100,
+      "userId": null,
+      "status": "completed",
+      "totalAmount": null,
+      "creationDate": "2019-11-26T20:18:36.367Z",
+      "products": []
+    },
+    {
+      "id": 101,
+      "userId": 2,
+      "status": "completed",
+      "totalAmount": 100,
+      "creationDate": "02/12/2019",
+      "products": [
+        5
+      ]
+    },
+    {
+      "id": 102,
+      "userId": 2,
+      "status": "completed",
+      "totalAmount": 17.08592,
+      "creationDate": "2019-11-27T17:13:57.785Z",
+      "products": [
+        3,
+        2
+      ]
+    },
+    {
+      "id": 1574800396223,
+      "userId": 2,
+      "status": "completed",
+      "totalAmount": 41.08592,
+      "creationDate": "2019-11-27T17:13:57.785Z",
+      "products": [
+        3,
+        2
+      ]
+    },
+    {
+      "id": 1574891426022,
+      "userId": 2,
+      "status": "confirmed",
+      "totalAmount": 12.75,
+      "creationDate": "2019-11-28T20:12:12.145Z",
+      "products": [
+        2,
+        1
+      ]
+    },
+    {
+      "id": 1574971952071,
+      "userId": 2,
+      "status": "confirmed",
+      "totalAmount": 21.83592,
+      "creationDate": "2019-11-28T20:34:21.647Z",
+      "products": [
+        3,
+        2,
+        1
+      ]
+    },
+    {
+      "id": 1574972085434,
+      "products": [
+        3,
+        2
+      ],
+      "totalAmount": 17.08592,
+      "userId": 2
+    },
+    {
+      "id": 1574972192389,
+      "products": [
+        3,
+        2
+      ],
+      "totalAmount": 17.08592,
+      "userId": 2
+    },
+    {
+      "id": 1574972384195,
+      "products": [
+        1
+      ],
+      "totalAmount": 28.5,
+      "userId": 2
+    },
+    {
+      "id": 1574972491860,
+      "products": [
+        1
+      ],
+      "totalAmount": 4.75,
+      "userId": 1
+    },
+    {
+      "id": 1574976364595,
+      "products": [
+        1
+      ],
+      "totalAmount": 4.75,
+      "userId": 2
     }
   ]
 }

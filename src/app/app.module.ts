@@ -10,7 +10,7 @@ import { CoreModule, httpInterceptorProviders } from './core';
 import { ProductsModule } from './products';
 import { CartModule } from './cart';
 import { SharedModule } from './shared';
-import { OrdersModule } from './orders';
+import { OrdersModule } from './orders/orders.module';
 
 @NgModule({
   declarations: [

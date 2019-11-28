@@ -1,7 +1,7 @@
-import { CreateOrderComponent } from './create-order';
+import { OrderListComponent } from './order-list';
 
 export const components = [
-  CreateOrderComponent
+  OrderListComponent
 ];
 
-export * from './create-order';
+export * from './order-list';

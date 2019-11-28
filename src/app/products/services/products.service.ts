@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { delay, map } from 'rxjs/operators';
 
 import { ApiConfig } from '../../core';
 import { IProductModel, ProductModel } from '../models';
@@ -21,6 +21,7 @@ export class ProductsService {
   getProducts$(): Observable<ProductModel[]> {
     return this.http.get(this.tasksUrl)
       .pipe(
+        delay(1000),
         map((items: IProductModel[]) => {
           return items.map(product => new ProductModel(product));
         })
@@ -34,13 +35,19 @@ export class ProductsService {
       );
   }
 
-  addProduct(product: IProductModel): Observable<object> {
+  addProduct(product: IProductModel): Observable<ProductModel> {
     product.id = +new Date();
 
-    return this.http.post(this.tasksUrl, product);
+    return this.http.post(this.tasksUrl, product)
+      .pipe(
+        map((res: IProductModel) => new ProductModel(res))
+      );
   }
 
-  editProduct(product: IProductModel): Observable<object> {
-    return this.http.put(`${this.tasksUrl}${product.id}`, product);
+  editProduct(product: IProductModel): Observable<ProductModel> {
+    return this.http.put(`${this.tasksUrl}${product.id}`, product)
+      .pipe(
+        map((res: IProductModel) => new ProductModel(res))
+      );
   }
 }

@@ -5,7 +5,7 @@ import { UserRole } from './core/models';
 import { AuthGuard, RoleGuard } from './core/guards';
 
 import { CartComponent } from './cart';
-import { CreateOrderComponent } from './orders';
+import { OrderListComponent } from './orders';
 import { ProductDetailsComponent, ProductListComponent } from './products';
 import { PageNotFoundComponent } from './components';
 
@@ -23,8 +23,9 @@ const routes: Routes = [{
   path: 'cart',
   component: CartComponent
 }, {
-  path: 'order',
-  component: CreateOrderComponent
+  path: 'orders',
+  canActivate: [AuthGuard],
+  component: OrderListComponent
 }, {
   path: 'auth',
   canLoad: [AuthGuard],

@@ -1,7 +1,7 @@
 
 <section class="cart-products p-3 container-fluid">
-  <div class="px-5">
-    <ng-container *ngIf="(cartProducts$ | async).length; else noProducts">
+  <div class="px-5" *ngIf="cartProducts$ | async as cartProducts">
+    <ng-container *ngIf="cartProducts.length; else noProducts">
       <div>
         <sh-select
           label="Order by:"
@@ -19,7 +19,7 @@
 
       <sh-cart-list
         class="d-flex flex-wrap flex-grow-1 mb-5"
-        [cartProducts]="cartProducts$ | async | shOrderBy : orderBy.field : orderBy.desc"
+        [cartProducts]="cartProducts | shOrderBy : orderBy.field : orderBy.desc"
         (delete)="onDeleteProductFromCart($event)"
         (changeCount)="onChangeCount($event)"
       ></sh-cart-list>
@@ -43,10 +43,12 @@
           (click)="onClear()"
         >Clear all</button>
 
-        <a
+        <button
           class="btn btn-info btn-sm"
-          [routerLink]="'/order'"
-        >Create order</a>
+          title="Only for authorized users"
+          [disabled]="(userId$ | async) === null"
+          (click)="onCreateOrder()"
+        >Create order</button>
       </div>
     </ng-container>
 
