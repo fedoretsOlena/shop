@@ -1,3 +1,9 @@
+### Home Task 7
+
+- Add `productsState`, `ordersState` and `routerState`;
+- Create actions using class and functions;
+- Add selectors, effects and reducers.
+
 ### Home Task 6
 
 - Add `json-server`, make changes for `products.service` (with Observable);

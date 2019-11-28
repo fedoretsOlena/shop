@@ -1,1 +1,33 @@
-<p>orders works!</p>
+<div class="container mt-3">
+  <ul class="list-group">
+    <li
+      class="list-group-item d-flex justify-content-between align-items-center"
+      *ngFor="let order of (orders$ | async), let i = index"
+    >
+      {{ i + 1 }})
+      <i>User id: {{ order.userId }}</i>
+      {{ order.products.length }} item<ng-container *ngIf="order.products.length > 1">s</ng-container>
+      <small>{{ order.creationDate | date: 'short' }}</small>
+
+
+      <span>{{ order.totalAmount | currency }}</span>
+      <span class="badge badge-info">{{ order.status }}</span>
+
+      <div class="w-25 d-flex justify-content-end">
+        <button
+          class="ml-2 btn btn-secondary btn-sm"
+          (click)="onChangeStatus(ORDER_STATUS.COMPLETED, order)"
+          *ngIf="order.status === ORDER_STATUS.CONFIRMED"
+        >Complete
+        </button>
+
+        <button
+          class="ml-2 btn btn-success btn-sm"
+          (click)="onChangeStatus(ORDER_STATUS.CONFIRMED, order)"
+          *ngIf="order.status === ORDER_STATUS.MODERATING"
+        >Confirm
+        </button>
+      </div>
+    </li>
+  </ul>
+</div>

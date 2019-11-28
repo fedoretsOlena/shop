@@ -42,6 +42,10 @@ export class UserProfileService {
     return !!Object.keys(settings).length;
   }
 
+  getUserId(): number {
+    return this.config.settings.id;
+  }
+
   getRoles(): UserRole[] {
     const { settings } = this.config;
 

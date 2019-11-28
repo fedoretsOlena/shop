@@ -10,3 +10,8 @@
       [routerLink]="'/product/' + product.id" >View More</a>
   </sh-product>
 </div>
+
+<h4
+  class="text-center py-4"
+  *ngIf="loading$ | async"
+>Loading...</h4>

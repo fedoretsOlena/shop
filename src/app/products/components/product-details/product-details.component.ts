@@ -1,12 +1,13 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 import { ProductModel } from '../../models';
 
-import { ProductsService } from '../../services';
 import { CartService } from '../../../cart/services';
+import { AppState, getProductsByUrl, loadProducts } from '../../../core/store';
 
 @Component({
   selector: 'sh-product-details',
@@ -14,19 +15,24 @@ import { CartService } from '../../../cart/services';
   styleUrls: ['./product-details.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ProductDetailsComponent {
+export class ProductDetailsComponent implements OnInit {
   product$: Observable<ProductModel>;
 
   constructor(
-    private route: ActivatedRoute,
-    private productsService: ProductsService,
+    private store: Store<AppState>,
     private cartService: CartService
   ) {
-    const productID = this.route.snapshot.params.productID;
+  }
 
-    if (productID) {
-      this.product$ = this.productsService.getProduct$(parseInt(productID, 10));
-    }
+  ngOnInit(): void {
+    this.product$ = this.store.select(getProductsByUrl)
+      .pipe(
+        tap(p => {
+          if (!p) {
+            this.store.dispatch(loadProducts());
+          }
+        })
+      );
   }
 
   onAddProductToCart(product: ProductModel): void {
