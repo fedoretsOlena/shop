@@ -4,13 +4,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { ProductsComponent, AdminComponent, ProductFormComponent, OrdersComponent } from './components';
 import { ProductResolveGuard } from './guards';
 import { CanDeactivateGuard } from '../core/guards';
+import { ProductExistGuard, ProductsStatePreloadingGuard } from '../products';
 
 const routes: Routes = [{
   path: '',
   component: AdminComponent,
   children: [{
     path: 'products',
-    component: ProductsComponent
+    component: ProductsComponent,
+    canActivate: [ProductsStatePreloadingGuard]
   }, {
     path: 'product',
     children: [{
@@ -23,7 +25,8 @@ const routes: Routes = [{
         product: ProductResolveGuard
       },
       component: ProductFormComponent,
-      canDeactivate: [CanDeactivateGuard]
+      canDeactivate: [CanDeactivateGuard],
+      canActivate: [ProductExistGuard]
     }]
   }, {
     path: 'orders',

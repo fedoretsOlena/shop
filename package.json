@@ -21,6 +21,7 @@
     "@angular/router": "~8.2.4",
     "@fortawesome/fontawesome-free": "^5.11.2",
     "@ngrx/effects": "^8.5.2",
+    "@ngrx/entity": "^8.5.2",
     "@ngrx/router-store": "^8.5.2",
     "@ngrx/store": "^8.5.1",
     "@ngrx/store-devtools": "^8.5.1",

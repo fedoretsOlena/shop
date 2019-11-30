@@ -15,3 +15,5 @@
   class="text-center py-4"
   *ngIf="loading$ | async"
 >Loading...</h4>
+
+<div class="alert alert-danger mt-3" *ngIf="error$ | async">Load wasn't successful.</div>

@@ -7,7 +7,7 @@ import { ProductModel } from '../../models';
 
 import { ProductsService } from '../../services';
 import { CartService } from '../../../cart/services';
-import { AppState, loadProducts, getProductsData, getProductsLoading } from '../../../core/store';
+import { AppState, getProductsData, getProductsError, getProductsLoading } from '../../../core/store';
 
 
 @Component({
@@ -18,6 +18,7 @@ import { AppState, loadProducts, getProductsData, getProductsLoading } from '../
 export class ProductListComponent implements OnInit {
   products$: Observable<ProductModel[]>;
   loading$: Observable<boolean>;
+  error$: Observable<string>;
 
   constructor(
     private store: Store<AppState>,
@@ -26,10 +27,9 @@ export class ProductListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.store.dispatch(loadProducts());
-
     this.products$ = this.store.select(getProductsData);
     this.loading$ = this.store.select(getProductsLoading);
+    this.error$ = this.store.select(getProductsError);
   }
 
   onAddProductToCart(product: ProductModel): void {

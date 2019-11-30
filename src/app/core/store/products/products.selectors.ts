@@ -1,14 +1,16 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
-import { ProductsState } from './products.state';
+import { productsAdapter, ProductsState } from './products.state';
 import { productsFeatureKey } from './products.reducer';
 import { getRouterParams } from '../router';
 import { ProductModel } from '../../../products';
 
 export const getProductsState = createFeatureSelector<ProductsState>(productsFeatureKey);
 
-export const getProductsData = createSelector(getProductsState, (state: ProductsState) =>
-  [...state.data]);
+export const {
+  selectEntities: getProductsEntities,
+  selectAll: getProductsData
+} = productsAdapter.getSelectors(getProductsState);
 
 export const getProductsLoading = createSelector(getProductsState, (state: ProductsState) =>
   state.loading);
@@ -16,13 +18,16 @@ export const getProductsLoading = createSelector(getProductsState, (state: Produ
 export const getProductsLoaded = createSelector(getProductsState, (state: ProductsState) =>
   state.loaded);
 
+export const getProductsError = createSelector(getProductsState, (state: ProductsState) =>
+  state.error);
+
 export const getProductsByUrl = createSelector(
-  getProductsData,
+  getProductsEntities,
   getRouterParams,
-  (products: ProductModel[], {productID}): ProductModel => {
+  (products, {productID}): ProductModel => {
 
     if (productID) {
-      return products.find(product => product.id === +productID);
+      return products[productID];
     }
 
     return null;

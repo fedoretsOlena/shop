@@ -36,7 +36,8 @@ export class ProductFormComponent implements OnInit, CanDeactivateGuard {
       sale: [null],
       description: [null, Validators.required],
       isAvailable: [true],
-      authors: [[]]
+      authors: [[]],
+      image: null
     });
   }
 
@@ -64,12 +65,13 @@ export class ProductFormComponent implements OnInit, CanDeactivateGuard {
   }
 
   submit(product: IProductModel): void {
-    this.productForm.reset();
 
     this.store.dispatch(
       this.isCreatingMode
         ? addProduct({product})
         : updateProduct({product: {...this.product, ...product}})
     );
+
+    this.productForm.reset();
   }
 }

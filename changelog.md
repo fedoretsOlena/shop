@@ -2,7 +2,8 @@
 
 - Add `productsState`, `ordersState` and `routerState`;
 - Create actions using class and functions;
-- Add selectors, effects and reducers.
+- Add selectors, effects and reducers;
+- Add `ngrx/entities` for `productsState`. 
 
 ### Home Task 6
 
