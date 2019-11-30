@@ -1,16 +1,18 @@
-import { ProductModel } from '../../../products';
+import { createEntityAdapter, EntityState, EntityAdapter } from '@ngrx/entity';
 
-export interface ProductsState {
-  data: ReadonlyArray<ProductModel>;
+import { ProductModel } from '../../../products/models';
+
+export const productsAdapter: EntityAdapter<ProductModel> = createEntityAdapter<ProductModel>();
+
+export interface ProductsState extends EntityState<ProductModel> {
   readonly loading: boolean;
   readonly loaded: boolean;
-  readonly error: Error | string;
+  readonly error: string;
 }
 
-export const initialProductsState: ProductsState = {
-  data: [],
+export const initialProductsState: ProductsState = productsAdapter.getInitialState({
   loading: false,
   loaded: false,
   error: null
-};
+});
 

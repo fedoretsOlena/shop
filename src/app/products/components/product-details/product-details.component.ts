@@ -2,12 +2,11 @@ import { Component, ChangeDetectionStrategy, OnInit } from '@angular/core';
 
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
 
 import { ProductModel } from '../../models';
 
 import { CartService } from '../../../cart/services';
-import { AppState, getProductsByUrl, loadProducts } from '../../../core/store';
+import { AppState, getProductsByUrl } from '../../../core/store';
 
 @Component({
   selector: 'sh-product-details',
@@ -25,14 +24,7 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.product$ = this.store.select(getProductsByUrl)
-      .pipe(
-        tap(p => {
-          if (!p) {
-            this.store.dispatch(loadProducts());
-          }
-        })
-      );
+    this.product$ = this.store.select(getProductsByUrl);
   }
 
   onAddProductToCart(product: ProductModel): void {

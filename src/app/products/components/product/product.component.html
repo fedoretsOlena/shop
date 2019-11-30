@@ -42,7 +42,7 @@
     </div>
   </div>
 
-  <div class="card-footer text-muted text-right">
+  <div class="card-footer text-muted text-right" *ngIf="product.genres">
     <ng-container *ngFor="let genre of product.genres, let last = last">
       {{ genre }}<ng-container *ngIf="!last">,</ng-container>
     </ng-container>

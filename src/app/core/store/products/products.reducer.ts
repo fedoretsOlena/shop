@@ -1,6 +1,6 @@
 import { Action, createReducer, on } from '@ngrx/store';
 
-import { initialProductsState, ProductsState } from './products.state';
+import { initialProductsState, productsAdapter, ProductsState } from './products.state';
 
 import * as productsActions from './products.actions';
 
@@ -9,28 +9,20 @@ export const productsFeatureKey = 'products';
 const reducer = createReducer(
   initialProductsState,
   on(productsActions.loadProducts, (state) => ({...state, loading: true})),
-  on(productsActions.loadProductsSuccess, (state, {data}) => ({
+  on(productsActions.loadProductsSuccess, (state, {data}) => productsAdapter.addAll([...data], {
     ...state,
-    data,
-    loaded: true,
-    loading: false
+    loading: false,
+    loaded: true
   })),
-  on(productsActions.updateProductSuccess, (state, {product}) => {
-    const newData = [...state.data];
-    const productInx = newData.findIndex(i => i.id === product.id);
-    newData[productInx] = product;
-
-    return {
-      ...state,
-      data: newData
-    };
-  }),
-  on(productsActions.addProductSuccess, (state, {product}) => ({
-    ...state,
-    data: [product, ...state.data]
-  })),
+  on(productsActions.updateProductSuccess, (state, {product}) => productsAdapter.updateOne({
+    id: product.id,
+    changes: product
+  }, state)),
+  on(productsActions.addProductSuccess, (state, {product}) => productsAdapter.addOne(product, state)),
   on(
     productsActions.loadProductsFailure,
+    (state, {error}) => ({...state, error, loading: false, loaded: false})),
+  on(
     productsActions.addProductFailure,
     productsActions.updateProductFailure,
     (state, {error}) => ({...state, error})),

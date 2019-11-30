@@ -6,7 +6,7 @@ import { AuthGuard, RoleGuard } from './core/guards';
 
 import { CartComponent } from './cart';
 import { OrderListComponent } from './orders';
-import { ProductDetailsComponent, ProductListComponent } from './products';
+import { ProductDetailsComponent, ProductExistGuard, ProductListComponent, ProductsStatePreloadingGuard } from './products';
 import { PageNotFoundComponent } from './components';
 
 const routes: Routes = [{
@@ -15,10 +15,12 @@ const routes: Routes = [{
   redirectTo: 'product-list'
 }, {
   path: 'product-list',
-  component: ProductListComponent
+  component: ProductListComponent,
+  canActivate: [ProductsStatePreloadingGuard]
 }, {
   path: 'product/:productID',
-  component: ProductDetailsComponent
+  component: ProductDetailsComponent,
+  canActivate: [ProductExistGuard]
 }, {
   path: 'cart',
   component: CartComponent
