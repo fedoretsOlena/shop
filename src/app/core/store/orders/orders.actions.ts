@@ -3,6 +3,7 @@ import { Action } from '@ngrx/store';
 import { IOrderModel, OrderModel } from '../../../orders';
 
 export enum OrdersActionTypes {
+  // Чуть больше информации о том, где действие происходит []
   LoadOrders = '[Orders] Load Orders',
   LoadOrdersByUser = '[Orders] Load Orders By User',
   LoadOrdersSuccess = '[Orders] Load Orders Success',

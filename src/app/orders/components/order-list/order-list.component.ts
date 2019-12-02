@@ -27,6 +27,8 @@ export class OrderListComponent implements OnInit {
   }
 
   getBadgeColor(status: Status): string {
+    // может этот код куда-то перенести,
+    // например в какой-то вспомагательный сервис
     if (status === Status.CONFIRMED) {
       return 'warning';
     } else if (status === Status.MODERATING) {
