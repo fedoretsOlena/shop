@@ -20,7 +20,7 @@ const components = [
   imports: [
     CommonModule,
     RouterModule,
-    HttpClientModule,
+    HttpClientModule, // обычно этот модуль добавляют в AppModule
 
     StoreModule.forFeature(productsFeatureKey, productsReducer),
     EffectsModule.forFeature([ProductsEffects])

@@ -20,6 +20,8 @@ export class OrdersComponent {
   constructor(
     private store: Store<AppState>
   ) {
+    // Старайтесь так не писать. Если евть возможность создать селектор,
+    // то лучше его создать. Код будет чище.
     this.orders$ = this.store.pipe(select(getOrdersState))
       .pipe(
         map(state => [...state.data])

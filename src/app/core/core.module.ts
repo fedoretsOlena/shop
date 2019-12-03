@@ -20,6 +20,7 @@ const constants = new ConstantService({ App: 'TaskManager', Ver: '1.0' });
 
     CoreStoreModule,
 
+    // Можно тоже перенести в модуль CoreStoreModule
     !environment.production ? StoreDevtoolsModule.instrument() : []
   ],
   providers: [
