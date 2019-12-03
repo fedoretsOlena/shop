@@ -9,12 +9,17 @@
     <input
       class="form-control" id="name" placeholder="Enter name"
       formControlName="email"
+      shEmailValidator
       [ngClass]="checkValidity('email')"
     >
     <div
       class="invalid-feedback"
       *ngIf="serverErrors['email']"
     >{{ serverErrors['email'] }}</div>
+    <div
+      class="invalid-feedback"
+      *ngIf="loginForm.get('email').hasError('email')"
+    >Please check e-mail, looks like it's wrong</div>
   </div>
   <div class="form-group">
     <label for="password">Password</label>

@@ -1,0 +1,11 @@
+<div
+  class="errors w-100"
+  *ngIf="control.touched"
+>
+  <p *ngIf="control.hasError('required')"> This field is required </p>
+  <p *ngIf="control.hasError('email')">Email isn't correct</p>
+  <p *ngIf="control.hasError('pattern')">Doesn't match pattern</p>
+  <p *ngIf="control.hasError('minlength')"> Too short</p>
+  <p *ngIf="control.hasError('maxLength')"> Too long</p>
+  <p *ngIf="control.hasError('onlyLetters')">Name should have only letters without spaces</p>
+</div>

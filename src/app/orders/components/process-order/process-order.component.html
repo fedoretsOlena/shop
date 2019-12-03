@@ -1,0 +1,96 @@
+<div class="container">
+
+  <form
+    class="orderForm mx-auto my-4"
+    [formGroup]="orderForm"
+  >
+    <h5 class="mb-4">Last step, before your order will be moderated: </h5>
+
+    <sh-input
+      label="Name"
+      placeholder="Enter your name"
+      [control]="orderForm.get('name')"
+    ></sh-input>
+
+    <sh-input
+      label="Surname"
+      placeholder="Enter your surname"
+      [control]="orderForm.get('surname')"
+    ></sh-input>
+
+
+    <sh-input
+      label="Email"
+      placeholder="E-mail address"
+      [control]="orderForm.get('email')"
+    ></sh-input>
+
+    <div class="mb-3">
+      <div class="d-flex align-items-center">
+        <span class="text-secondary">Phone</span>
+
+        <button
+          class="btn btn-sm btn-link ml-3 text-info a-flex"
+          (click)="onAddPhoneControl()"
+        >
+          <i class="fas fa-plus"></i> Add one
+        </button>
+      </div>
+      <div
+        class="d-flex align-items-start"
+        *ngFor="let phoneControl of orderForm.get('phones').controls, let index = index"
+      >
+        <sh-input
+          type="tel"
+          [placeholder]="'Enter phone number ' + (index + 1)"
+          [control]="phoneControl"
+        ></sh-input>
+
+        <button
+          class="btn btn-sm mt-2 text-danger"
+          (click)="onDeletePhoneControl(index)"
+        >Delete
+        </button>
+      </div>
+    </div>
+
+    <div class="form-check input mb-3">
+      <input
+        class="form-check-input"
+        id="pickup"
+        type="checkbox"
+        formControlName="pickup"
+      >
+      <label
+        class="form-check-label text-secondary mb-1"
+        for="pickup"
+      >Pickup</label>
+    </div>
+
+    <sh-input
+      class=""
+      label="Address"
+      placeholder="Your address"
+      [textarea]="true"
+      [control]="orderForm.get('address')"
+      *ngIf="!orderForm.get('pickup').value"
+    ></sh-input>
+
+    <div class="d-flex justify-content-end">
+      <button
+        class="btn btn-warning"
+        type="reset"
+        [disabled]="!orderForm.touched"
+      >Reset
+      </button>
+
+      <button
+        type="submit"
+        class="btn btn-success ml-3"
+        [disabled]="orderForm.invalid"
+        (click)="onSubmit(orderForm.value)"
+      >Continue
+      </button>
+    </div>
+  </form>
+</div>

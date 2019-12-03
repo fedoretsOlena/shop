@@ -8,7 +8,6 @@ import { catchError, map, switchMap } from 'rxjs/operators';
 import { OrdersService } from '../../../orders/services/orders.service';
 import * as OrdersActions from './orders.actions';
 import { IOrderModel } from '../../../orders/models';
-import * as productsActions from '../products/products.actions';
 import * as routerActions from '../router';
 
 
@@ -62,7 +61,7 @@ export class OrdersEffects {
      OrdersActions.OrdersActionTypes.CreateOrderSuccess
     ),
     map(() => routerActions.go({
-        path: ['/orders']
+        path: ['/orders/process']
       })
     )));
 }

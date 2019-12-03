@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { pipes } from './pipes';
-import { directives } from './directives';
+import { directives, CanViewDirective } from './directives';
 import { components, exportComponents } from './components';
 
 @NgModule({
@@ -19,6 +20,7 @@ import { components, exportComponents } from './components';
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
 
     RouterModule
   ]

@@ -4,10 +4,12 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AuthRoutingModule } from './auth-routing.module';
+import { EmailValidatorDirective } from '../core/validators';
 
 @NgModule({
   declarations: [
-    ...AuthRoutingModule.components
+    ...AuthRoutingModule.components,
+    EmailValidatorDirective
   ],
   imports: [
     CommonModule,

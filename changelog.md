@@ -1,3 +1,13 @@
+### Home Task 8
+
+- Add `ProccessOrderComponent` with reactive form inside (`orders/process`);
+- Add delete / add control for phones FormArray;
+- Add separate `InputComponent` and `InputErrorsComponent`;
+- Subscribe on changes `pickup` and toggle validators of `address` field;
+- Add custom validator `checkSpace` for user name;
+- Add email validator directive `shEmailValidator` and implement it to login form, 'cause `ProccessOrderComponent` uses input like independent component.
+
+
 ### Home Task 7
 
 - Add `productsState`, `ordersState` and `routerState`;
