@@ -1,0 +1,39 @@
+<div class="form-group input mb-0">
+  <div class="d-flex justify-content-between">
+    <label
+      class="input__lbl text-secondary mb-1"
+      [for]="id"
+    >{{ label }}</label>
+    <span
+      class="input__info"
+      *ngIf="control.hasError('required')"
+    >*required</span>
+  </div>
+
+  <ng-template #inputEl>
+    <input
+      class="input__el form-control"
+      [id]="id"
+      [type]="type"
+      [placeholder]="placeholder"
+      [formControl]="control"
+      [ngClass]="{
+        'is-invalid': control.invalid && control.touched,
+        'is-valid': control.valid && control.touched}"
+    >
+  </ng-template>
+
+  <textarea
+    class="input__el form-control"
+    rows="4"
+    *ngIf="textarea; else inputEl"
+    [placeholder]="placeholder"
+    [formControl]="control"
+    [ngClass]="{'input--invalid': control.invalid && control.touched}"
+  ></textarea>
+
+  <sh-input-errors
+    class="d-block"
+    [control]="control"></sh-input-errors>
+</div>
+

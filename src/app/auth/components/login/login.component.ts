@@ -13,8 +13,7 @@ import { AuthService } from '../../services';
 export class LoginComponent {
   loginForm: FormGroup = this.fb.group({
     email: ['admin@epam.com', [
-      Validators.required,
-      Validators.email
+      Validators.required
     ]],
     password: ['admin', Validators.required]
   });

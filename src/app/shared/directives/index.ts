@@ -9,3 +9,5 @@ export const directives = [
   CanViewDirective,
   BadgeStatusDirective
 ];
+
+export * from './can-view.directive';

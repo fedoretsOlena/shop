@@ -11,7 +11,6 @@ import { CoreModule, httpInterceptorProviders } from './core';
 import { ProductsModule } from './products';
 import { CartModule } from './cart';
 import { SharedModule } from './shared';
-import { OrdersModule } from './orders/orders.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +25,6 @@ import { OrdersModule } from './orders/orders.module';
     CartModule,
     SharedModule,
     ProductsModule,
-    OrdersModule,
 
     AppRoutingModule
   ],
