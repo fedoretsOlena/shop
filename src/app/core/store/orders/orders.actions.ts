@@ -3,18 +3,17 @@ import { Action } from '@ngrx/store';
 import { IOrderModel, OrderModel } from '../../../orders';
 
 export enum OrdersActionTypes {
-  // Чуть больше информации о том, где действие происходит []
-  LoadOrders = '[Orders] Load Orders',
-  LoadOrdersByUser = '[Orders] Load Orders By User',
-  LoadOrdersSuccess = '[Orders] Load Orders Success',
-  LoadOrdersFailure = '[Orders] Load Orders Failure',
-  CreateOrder = '[Orders] Create Order',
-  CreateOrderSuccess = '[Orders] Create Order Success',
-  CreateOrderFailure = '[Orders] Create Order Failure',
-  UpdateOrder = '[Orders] Update Order',
-  UpdateOrderSuccess = '[Orders] Update Order Success',
-  UpdateOrderFailure = '[Orders] Update Order Failure',
-  ResetOrders = '[Orders] Reset Orders'
+  LoadOrders = '[Admin Orders page] Load Orders',
+  LoadOrdersByUser = '[Orders Page] Load Orders By User',
+  LoadOrdersSuccess = '[Get Orders Effect] Load Orders Success',
+  LoadOrdersFailure = '[Get Orders Effect] Load Orders Failure',
+  CreateOrder = '[Cart] Create Order',
+  CreateOrderSuccess = '[Create Order Effect] Create Order Success',
+  CreateOrderFailure = '[Create Order Effect] Create Order Failure',
+  UpdateOrder = '[Admin Orders] Update Order',
+  UpdateOrderSuccess = '[Update Order Effect] Update Order Success',
+  UpdateOrderFailure = '[Update Order Effect] Update Order Failure',
+  ResetOrders = '[Nav] Reset Orders'
 }
 
 export class LoadOrders implements Action {

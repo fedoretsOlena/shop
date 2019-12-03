@@ -11,7 +11,10 @@
 
 
       <span>{{ order.totalAmount | currency }}</span>
-      <span class="badge badge-info">{{ order.status }}</span>
+      <span
+        class="badge"
+        [shBadgeStatus]="order.status"
+      >{{ order.status }}</span>
 
       <div class="w-25 d-flex justify-content-end">
         <button

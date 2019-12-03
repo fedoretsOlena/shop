@@ -4,7 +4,6 @@ import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { AppState, LoadOrdersByUser, OrdersState, getOrdersState } from '../../../core/store';
-import { Status } from '../../models';
 
 @Component({
   selector: 'sh-order-list',
@@ -24,17 +23,5 @@ export class OrderListComponent implements OnInit {
   }
 
   ngOnInit() {
-  }
-
-  getBadgeColor(status: Status): string {
-    // может этот код куда-то перенести,
-    // например в какой-то вспомагательный сервис
-    if (status === Status.CONFIRMED) {
-      return 'warning';
-    } else if (status === Status.MODERATING) {
-      return 'info';
-    } else {
-      return 'success';
-    }
   }
 }

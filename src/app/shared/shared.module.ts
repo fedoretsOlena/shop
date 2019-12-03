@@ -5,14 +5,12 @@ import { CommonModule } from '@angular/common';
 import { pipes } from './pipes';
 import { directives } from './directives';
 import { components, exportComponents } from './components';
-import { CanViewDirective } from './directives/can-view.directive';
 
 @NgModule({
   declarations: [
     ...components,
     ...directives,
-    ...pipes,
-    CanViewDirective
+    ...pipes
   ],
   exports: [
     ...exportComponents,

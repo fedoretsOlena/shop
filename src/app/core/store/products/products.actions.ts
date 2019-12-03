@@ -3,45 +3,45 @@ import { createAction, props } from '@ngrx/store';
 import { IProductModel, ProductModel } from '../../../products';
 
 export const loadProducts = createAction(
-  '[Products] Load Products'
+  '[Product Exist Guard] Load Products'
 );
 
 export const loadProductsSuccess = createAction(
-  '[Products] Load Products Success',
+  '[Get Products Effect] Load Products Success',
   props<{ data: ProductModel[] }>()
 );
 
 export const loadProductsFailure = createAction(
-  '[Products] Load Products Failure',
+  '[Get Products Effect] Load Products Failure',
   props<{ error: string }>()
 );
 
 export const updateProduct = createAction(
-  '[Product] Update Product',
+  '[Admin product form] Update Product',
   props<{ product: IProductModel }>()
 );
 
 export const updateProductSuccess = createAction(
-  '[Product] Update Product Success',
+  '[Update Product Effect] Update Product Success',
   props<{ product: ProductModel }>()
 );
 
 export const updateProductFailure = createAction(
-  '[Product] Update Product Failure',
+  '[Update Product Effect] Update Product Failure',
   props<{ error: any }>()
 );
 
 export const addProduct = createAction(
-  '[Product] Add Product',
+  '[Admin Product Form] Add Product',
   props<{ product: IProductModel }>()
 );
 
 export const addProductSuccess = createAction(
-  '[Product] Add Product Success',
+  '[Add Product Effect] Add Product Success',
   props<{ product: ProductModel }>()
 );
 
 export const addProductFailure = createAction(
-  '[Product] Add Product Failure',
+  '[Add Product Effect] Add Product Failure',
   props<{ error: any }>()
 );

@@ -5,8 +5,8 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
 import { components } from './components';
-import { ordersFeatureKey, ordersReducer } from '../core/store/';
-import { OrdersEffects } from '../core/store/orders/orders.effects';
+import { ordersFeatureKey, ordersReducer, OrdersEffects } from '../core/store/';
+import { SharedModule } from '../shared';
 
 @NgModule({
   declarations: [...components],
@@ -14,7 +14,10 @@ import { OrdersEffects } from '../core/store/orders/orders.effects';
   imports: [
     CommonModule,
     StoreModule.forFeature(ordersFeatureKey, ordersReducer),
-    EffectsModule.forFeature([OrdersEffects])
+    EffectsModule.forFeature([OrdersEffects]),
+
+    SharedModule
   ]
 })
-export class OrdersModule { }
+export class OrdersModule {
+}

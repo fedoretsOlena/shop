@@ -18,7 +18,7 @@
         <span class="text-warning pr-5">{{ order.totalAmount | currency }}</span>
         <span
           class="badge"
-          [ngClass]="'badge-' + getBadgeColor(order.status)"
+          [shBadgeStatus]="order.status"
         >{{ order.status }}</span>
       </div>
     </li>

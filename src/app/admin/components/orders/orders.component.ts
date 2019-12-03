@@ -2,10 +2,9 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 import { OrderModel, Status } from '../../../orders/models';
-import { AppState, getOrdersState, LoadOrders, UpdateOrder } from '../../../core/store';
+import { AppState, getOrdersData, LoadOrders, UpdateOrder } from '../../../core/store';
 
 @Component({
   selector: 'sh-orders',
@@ -20,12 +19,7 @@ export class OrdersComponent {
   constructor(
     private store: Store<AppState>
   ) {
-    // Старайтесь так не писать. Если евть возможность создать селектор,
-    // то лучше его создать. Код будет чище.
-    this.orders$ = this.store.pipe(select(getOrdersState))
-      .pipe(
-        map(state => [...state.data])
-      );
+    this.orders$ = this.store.pipe(select(getOrdersData));
 
     this.store.dispatch(new LoadOrders());
   }

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
@@ -20,7 +19,6 @@ const components = [
   imports: [
     CommonModule,
     RouterModule,
-    HttpClientModule, // обычно этот модуль добавляют в AppModule
 
     StoreModule.forFeature(productsFeatureKey, productsReducer),
     EffectsModule.forFeature([ProductsEffects])

@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminRoutingModule } from './admin-routing.module';
 
 import { components } from './components';
+import { SharedModule } from '../shared';
 
 
 @NgModule({
@@ -15,6 +16,8 @@ import { components } from './components';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+
+    SharedModule,
 
     AdminRoutingModule
   ]
