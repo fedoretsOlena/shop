@@ -2,6 +2,7 @@ import { AbstractControl, Validators } from '@angular/forms';
 
 import { RegExpService } from './reg-exp.service';
 
+// Какую выгоду получим, расширив класс Validators?
 export class CustomValidators extends Validators {
   constructor() {
     super();
