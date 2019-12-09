@@ -1,7 +1,7 @@
 import { Directive } from '@angular/core';
 import { Validator, AbstractControl, NG_VALIDATORS } from '@angular/forms';
 
-import { RegExpService } from './reg-exp.service';
+import { RegExpPatterns } from './reg-exp.patterns';
 
 @Directive({
   selector: '[shEmailValidator]',
@@ -13,7 +13,7 @@ import { RegExpService } from './reg-exp.service';
 })
 export class EmailValidatorDirective implements Validator {
   validate(c: AbstractControl): { [key: string]: boolean } | null {
-    return RegExpService.email.test(c.value) ? null : {email: true};
+    return RegExpPatterns.email.test(c.value) ? null : {email: true};
   }
 }
 

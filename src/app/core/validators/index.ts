@@ -1,3 +1,3 @@
 export * from './custom.validators';
-export * from './reg-exp.service';
+export * from './reg-exp.patterns';
 export * from './email.directive';

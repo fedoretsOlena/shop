@@ -3,10 +3,11 @@ import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Valida
 import { Router } from '@angular/router';
 
 import { Subscription } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 import { UserProfileService } from '../../../core/services';
 import { CustomValidators } from '../../../core/validators';
-import { filter } from 'rxjs/operators';
+import { UserModel } from '../../../auth/models';
 
 @Component({
   selector: 'sh-process-order',
@@ -44,7 +45,7 @@ export class ProcessOrderComponent implements OnInit, OnDestroy {
       .pipe(
         filter(Boolean)
       )
-      .subscribe((user) => {
+      .subscribe((user: UserModel) => {
         const prepared = {...user, name: user.login};
         this.orderForm.patchValue(prepared);
       }));

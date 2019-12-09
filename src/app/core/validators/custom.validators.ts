@@ -1,16 +1,12 @@
-import { AbstractControl, Validators } from '@angular/forms';
+import { AbstractControl } from '@angular/forms';
 
-import { RegExpService } from './reg-exp.service';
+import { RegExpPatterns } from './reg-exp.patterns';
 
-// Какую выгоду получим, расширив класс Validators?
-export class CustomValidators extends Validators {
-  constructor() {
-    super();
-  }
+export class CustomValidators {
 
   static onlyLetters(control: AbstractControl): { [key: string]: boolean } | null {
     if (null !== control.value && control.value.length > 0) {
-      return !RegExpService.onlyLetters.test(control.value) ? {onlyLetters: true} : null;
+      return !RegExpPatterns.onlyLetters.test(control.value) ? {onlyLetters: true} : null;
     }
   }
 }
